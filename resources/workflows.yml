@@ -1,0 +1,93 @@
+resources:
+  jobs:
+    realbricks_phase_pipeline:
+      name: realbricks-phase-pipeline
+      max_concurrent_runs: 1
+      tasks:
+        - task_key: phase_1
+          spark_python_task:
+            python_file: ${workspace.file_path}/src/realbricks/main.py
+            parameters:
+              - phase
+              - --phase
+              - "1"
+              - --config
+              - ${var.phase1_config}
+              - --deal-id
+              - workflow-phase1
+          existing_cluster_id: ${var.existing_cluster_id}
+
+        - task_key: phase_2
+          depends_on:
+            - task_key: phase_1
+          spark_python_task:
+            python_file: ${workspace.file_path}/src/realbricks/main.py
+            parameters:
+              - phase
+              - --phase
+              - "2"
+              - --config
+              - ${var.phase2_config}
+              - --deal-id
+              - workflow-phase2
+              - --offer-text
+              - "Inspection contingency. Closing in 21 days. Down payment 15%."
+          existing_cluster_id: ${var.existing_cluster_id}
+
+        - task_key: phase_3
+          depends_on:
+            - task_key: phase_2
+          spark_python_task:
+            python_file: ${workspace.file_path}/src/realbricks/main.py
+            parameters:
+              - phase
+              - --phase
+              - "3"
+              - --config
+              - ${var.phase3_config}
+              - --deal-id
+              - workflow-phase3
+          existing_cluster_id: ${var.existing_cluster_id}
+
+        - task_key: phase_4
+          depends_on:
+            - task_key: phase_3
+          spark_python_task:
+            python_file: ${workspace.file_path}/src/realbricks/main.py
+            parameters:
+              - phase
+              - --phase
+              - "4"
+              - --config
+              - ${var.phase4_config}
+              - --deal-id
+              - workflow-phase4
+          existing_cluster_id: ${var.existing_cluster_id}
+
+    realbricks_refresh_phase1:
+      name: realbricks-refresh-phase1
+      max_concurrent_runs: 1
+      schedule:
+        quartz_cron_expression: "0 0 6 * * ?"
+        timezone_id: "UTC"
+        pause_status: "PAUSED"
+      tasks:
+        - task_key: ingest
+          spark_python_task:
+            python_file: ${workspace.file_path}/src/realbricks/main.py
+            parameters:
+              - ingest
+              - --config
+              - ${var.phase1_config}
+          existing_cluster_id: ${var.existing_cluster_id}
+
+        - task_key: models
+          depends_on:
+            - task_key: ingest
+          spark_python_task:
+            python_file: ${workspace.file_path}/src/realbricks/main.py
+            parameters:
+              - models
+              - --config
+              - ${var.phase1_config}
+          existing_cluster_id: ${var.existing_cluster_id}

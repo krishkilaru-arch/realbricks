@@ -1,0 +1,41 @@
+bundle:
+  name: realbricks
+
+workspace:
+  host: https://dbc-47a3dcaa-ae3e.cloud.databricks.com
+
+include:
+  - resources/*.yml
+
+sync:
+  include:
+    - src/**
+    - conf/**
+    - apps/**
+    - docs/**
+    - pyproject.toml
+    - README.md
+
+variables:
+  existing_cluster_id:
+    description: Existing all-purpose or job cluster ID for workflow runs.
+  phase1_config:
+    default: conf/phases/phase1.json
+  phase2_config:
+    default: conf/phases/phase2.json
+  phase3_config:
+    default: conf/phases/phase3.json
+  phase4_config:
+    default: conf/phases/phase4.json
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+
+  prod:
+    mode: production
+    workspace:
+      root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}

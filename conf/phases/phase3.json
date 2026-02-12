@@ -1,0 +1,33 @@
+{
+  "sources": [
+    {
+      "name": "warren_group_mls",
+      "source_table": "the_warren_group_sample_us_national_mls_property_listings_data_multiple_listing_service_60m_records.default.sample_us_national_mls_property_listings_data_multiple_listing_service_60m_records",
+      "target_table": "main.realbricks_bronze.mls_warren_group",
+      "mode": "overwrite",
+      "enabled": true
+    },
+    {
+      "name": "batchdata_property_api_snapshot",
+      "source_table": "batchdata_sample_us_property_api_155m_records_real_time_property_details_tax_zoning_intelligence.default.sample_us_property_api_155m_records_real_time_property_details_tax_zoning_intelligence",
+      "target_table": "main.realbricks_bronze.batchdata_property_api_snapshot",
+      "mode": "overwrite",
+      "enabled": true
+    },
+    {
+      "name": "batchdata_mortgage_lien",
+      "source_table": "batchdata_sample_us_mortgage_lien_data_127m_properties_complete_debt_equity_transaction_intelligence.default.sample_us_mortgage_lien_data_127m_properties_complete_debt_equity_transaction_intelligence",
+      "target_table": "main.realbricks_bronze.batchdata_mortgage_lien",
+      "mode": "overwrite",
+      "enabled": true
+    },
+    {
+      "name": "aterio_housing_forecast",
+      "source_table": "aterio_io_us_housing_forecast.default.us_housing_forecast",
+      "target_table": "main.realbricks_bronze.aterio_housing_forecast",
+      "mode": "overwrite",
+      "enabled": true
+    }
+  ]
+}
+

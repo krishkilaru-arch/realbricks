@@ -1,0 +1,7 @@
+.secrets.local
+__pycache__/
+.pytest_cache/
+*.pyc
+conf/app_config.json
+docs/
+apps/README.md

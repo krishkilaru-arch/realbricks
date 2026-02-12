@@ -1,0 +1,47 @@
+{
+  "sources": [
+    {
+      "name": "warren_group_mls",
+      "source_table": "the_warren_group_sample_us_national_mls_property_listings_data_multiple_listing_service_60m_records.default.sample_us_national_mls_property_listings_data_multiple_listing_service_60m_records",
+      "target_table": "main.realbricks_bronze.mls_warren_group",
+      "mode": "overwrite",
+      "enabled": true
+    },
+    {
+      "name": "corelogic_property_characteristics",
+      "source_table": "corelogic_property_characteristic_information_on_us_properties_sample.default.property_characteristic_information_on_us_properties_sample",
+      "target_table": "main.realbricks_bronze.corelogic_property_characteristics",
+      "mode": "overwrite",
+      "enabled": true
+    },
+    {
+      "name": "batchdata_homeowner",
+      "source_table": "batchdata_sample_us_homeowner_data_155m_property_owners_contact_info_ownership_intelligence.default.sample_us_homeowner_data_155m_property_owners_contact_info_ownership_intelligence",
+      "target_table": "main.realbricks_bronze.batchdata_homeowner",
+      "mode": "overwrite",
+      "enabled": true
+    },
+    {
+      "name": "batchdata_mortgage_lien",
+      "source_table": "batchdata_sample_us_mortgage_lien_data_127m_properties_complete_debt_equity_transaction_intelligence.default.sample_us_mortgage_lien_data_127m_properties_complete_debt_equity_transaction_intelligence",
+      "target_table": "main.realbricks_bronze.batchdata_mortgage_lien",
+      "mode": "overwrite",
+      "enabled": true
+    },
+    {
+      "name": "ambee_disaster_risk",
+      "source_table": "ambee_ambee_global_natural_disaster_data_historical_present_climatology.default.nd_present_data",
+      "target_table": "main.realbricks_bronze.ambee_nd_present",
+      "mode": "overwrite",
+      "enabled": true
+    },
+    {
+      "name": "aterio_population_forecast",
+      "source_table": "aterio_io_us_population_forecast_by_zipcode_2010_2035.default.us_population_forecast_by_zipcode_2010_2035",
+      "target_table": "main.realbricks_bronze.aterio_population_forecast",
+      "mode": "overwrite",
+      "enabled": true
+    }
+  ]
+}
+

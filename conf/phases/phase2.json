@@ -1,0 +1,40 @@
+{
+  "sources": [
+    {
+      "name": "warren_group_mls",
+      "source_table": "the_warren_group_sample_us_national_mls_property_listings_data_multiple_listing_service_60m_records.default.sample_us_national_mls_property_listings_data_multiple_listing_service_60m_records",
+      "target_table": "main.realbricks_bronze.mls_warren_group",
+      "mode": "overwrite",
+      "enabled": true
+    },
+    {
+      "name": "corelogic_property_characteristics",
+      "source_table": "corelogic_property_characteristic_information_on_us_properties_sample.default.property_characteristic_information_on_us_properties_sample",
+      "target_table": "main.realbricks_bronze.corelogic_property_characteristics",
+      "mode": "overwrite",
+      "enabled": true
+    },
+    {
+      "name": "batchdata_mortgage_lien",
+      "source_table": "batchdata_sample_us_mortgage_lien_data_127m_properties_complete_debt_equity_transaction_intelligence.default.sample_us_mortgage_lien_data_127m_properties_complete_debt_equity_transaction_intelligence",
+      "target_table": "main.realbricks_bronze.batchdata_mortgage_lien",
+      "mode": "overwrite",
+      "enabled": true
+    },
+    {
+      "name": "batchdata_building_permits",
+      "source_table": "building_permit_records_res_construction_intelligence.default.sample_us_building_permit_data_125m_records_residential_commercial_construction_intelligence",
+      "target_table": "main.realbricks_bronze.batchdata_building_permits",
+      "mode": "overwrite",
+      "enabled": true
+    },
+    {
+      "name": "ambee_disaster_risk",
+      "source_table": "ambee_ambee_global_natural_disaster_data_historical_present_climatology.default.nd_present_data",
+      "target_table": "main.realbricks_bronze.ambee_nd_present",
+      "mode": "overwrite",
+      "enabled": true
+    }
+  ]
+}
+

@@ -1,0 +1,13 @@
+{
+  "app_title": "RealBricks Broker Dashboard",
+  "kpi_table": "main.realbricks_gold.market_kpis",
+  "ranking_table": "main.realbricks_gold.property_rankings",
+  "state_table": "main.realbricks_ops.deal_state",
+  "page_size_default": 25,
+  "page_size_max": 200,
+  "allowed_users": [],
+  "allowed_email_domains": [
+    "yourcompany.com"
+  ],
+  "enable_actions": true
+}
